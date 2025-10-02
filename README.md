@@ -19,6 +19,9 @@ Download the contents and extract to your WordPress plugin folder. Activate.
 5. Create new Pull Request
 
 ## Changelog
+### 3.0.5 =
+
+* Various Security vulnerability fixes
 
 ### 3.0.4 =
 

@@ -161,7 +161,7 @@ class WC_Gateway_SecureSubmit_Tests_Integration_Gateway_PaymentTest
     public function testSuccessAllowSuspicious()
     {
         $sk = $this->instance->secret_key;
-        $this->instance->secret_key = 'skapi_cert_MdCMAQCNNmsFJjbyinb90B96W0p4mOtyk6iW-hVDYw';
+        $this->instance->secret_key = 'skapi_cert_MdCMAQCNNmsFJjbyinb90B96W0p4mOtyk6iW-hVDYw'; #gitleaks:allow
         $this->instance->allow_fraud = 'yes';
         $this->tokenService = new HpsTokenService(
             'pkapi_cert_5p1OdRXdfAFedIfT78'
@@ -186,7 +186,7 @@ class WC_Gateway_SecureSubmit_Tests_Integration_Gateway_PaymentTest
     public function testSuccessAllowSuspiciousSendEmail()
     {
         $sk = $this->instance->secret_key;
-        $this->instance->secret_key = 'skapi_cert_MdCMAQCNNmsFJjbyinb90B96W0p4mOtyk6iW-hVDYw';
+        $this->instance->secret_key = 'skapi_cert_MdCMAQCNNmsFJjbyinb90B96W0p4mOtyk6iW-hVDYw'; #gitleaks:allow
         $this->instance->allow_fraud = 'yes';
         $this->instance->email_fraud = 'yes';
         $this->instance->fraud_address = 'bob@example.com';
@@ -245,7 +245,7 @@ class WC_Gateway_SecureSubmit_Tests_Integration_Gateway_PaymentTest
     public function testFailDisallowSuspicious()
     {
         $sk = $this->instance->secret_key;
-        $this->instance->secret_key = 'skapi_cert_MdCMAQCNNmsFJjbyinb90B96W0p4mOtyk6iW-hVDYw';
+        $this->instance->secret_key = 'skapi_cert_MdCMAQCNNmsFJjbyinb90B96W0p4mOtyk6iW-hVDYw'; #gitleaks:allow
         $this->tokenService = new HpsTokenService(
             'pkapi_cert_5p1OdRXdfAFedIfT78'
         );
@@ -268,7 +268,7 @@ class WC_Gateway_SecureSubmit_Tests_Integration_Gateway_PaymentTest
     public function testFailDisallowSuspiciousSendEmail()
     {
         $sk = $this->instance->secret_key;
-        $this->instance->secret_key = 'skapi_cert_MdCMAQCNNmsFJjbyinb90B96W0p4mOtyk6iW-hVDYw';
+        $this->instance->secret_key = 'skapi_cert_MdCMAQCNNmsFJjbyinb90B96W0p4mOtyk6iW-hVDYw'; #gitleaks:allow
         $this->instance->email_fraud = 'yes';
         $this->instance->fraud_address = 'bob@example.com';
         $this->tokenService = new HpsTokenService(

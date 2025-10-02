@@ -31,7 +31,7 @@ class WC_Gateway_SecureSubmit_Tests_Utility_Installer
     {
         $instance = WC_Gateway_SecureSubmit::instance();
         $instance->enabled = 'yes';
-        $instance->secret_key = 'skapi_cert_MTyMAQBiHVEAewvIzXVFcmUd2UcyBge_eCpaASUp0A';
+        $instance->secret_key = 'skapi_cert_MTyMAQBiHVEAewvIzXVFcmUd2UcyBge_eCpaASUp0A'; #gitleaks:allow
         $instance->public_key = 'pkapi_cert_jKc1FtuyAydZhZfbB3';
     }
 }

@@ -37,6 +37,10 @@ Get your Certification (Dev/Sandbox) Api Keys by creating an account on https://
 3. A view of the Manage Cards section
 
 == Changelog ==
+= 3.0.5 =
+
+* Various Security vulnerability fixes
+
 = 3.0.4 =
 
 * Bugfix: For User my account card details not visible

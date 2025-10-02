@@ -3,7 +3,7 @@
 Plugin Name: Heartland SecureSubmit Gateway
 Plugin URI: https://developer.heartlandpaymentsystems.com/SecureSubmit/
 Description: Heartland Payment Systems gateway for eCommerce.
-Version: 3.0.4
+Version: 3.0.5
 WC tested up to: 9.8.1
 Author: SecureSubmit
 Author URI: https://developer.heartlandpaymentsystems.com/SecureSubmit/
