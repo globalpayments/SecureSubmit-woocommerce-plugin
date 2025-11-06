@@ -1,9 +1,9 @@
 <?php
 /*
-Plugin Name: Heartland SecureSubmit Gateway
+Plugin Name: Global Payments SecureSubmit Gateway
 Plugin URI: https://developer.heartlandpaymentsystems.com/SecureSubmit/
-Description: Heartland Payment Systems gateway for eCommerce.
-Version: 3.0.5
+Description: Global Payments gateway for eCommerce.
+Version: 3.0.6
 WC tested up to: 9.8.1
 Author: SecureSubmit
 Author URI: https://developer.heartlandpaymentsystems.com/SecureSubmit/

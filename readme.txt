@@ -1,16 +1,16 @@
-=== Heartland SecureSubmit Gateway ===
+=== Global Payments SecureSubmit Gateway ===
 Contributors: markhagan
-Tags: heartland, payment, tokenize, ecommerce
+Tags: globalpayments, payment, tokenize, ecommerce
 Tested up to: 6.8
 Stable tag: trunk
 License: GPLv2
 License URI: https://github.com/hps/heartland-woocommerce-plugin/blob/master/LICENSE.md
 
-SecureSubmit allows merchants to take PCI-Friendly Credit Card payments using Heartland Payment Systems Payment Gateway.
+SecureSubmit allows merchants to take PCI-Friendly Credit Card payments using Global Payments Payment Gateway.
 
 == Description ==
 
-This plugin provides a Heartland Payment Systems Gateway addon using our SecureSubmit card tokenization library.
+This plugin provides a Global Payments Gateway addon using our SecureSubmit card tokenization library.
 
 Features of SecureSubmit:
 
@@ -20,8 +20,8 @@ Features of SecureSubmit:
 * Enables credit card saving for a friction-reduced checkout
 
 == Installation ==
-After you have installed and configured the main eCommerce plugin use the following steps to install the Heartland Payment Systems Gateway addon:
-1. In your WordPress admin, go to Plugins > Add New and search for "Heartland SecureSubmit"
+After you have installed and configured the main eCommerce plugin use the following steps to install the Global Payments Gateway addon:
+1. In your WordPress admin, go to Plugins > Add New and search for "Global Payments SecureSubmit"
 2. Click Install, once installed click Activate
 3. Configure and Enable the gateway by adding your public and secret Api Keys
 
@@ -37,6 +37,10 @@ Get your Certification (Dev/Sandbox) Api Keys by creating an account on https://
 3. A view of the Manage Cards section
 
 == Changelog ==
+= 3.0.6 =
+
+* Global Payments Rebrand for Github
+
 = 3.0.5 =
 
 * Various Security vulnerability fixes
