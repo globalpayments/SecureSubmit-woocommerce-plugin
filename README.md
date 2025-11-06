@@ -1,6 +1,6 @@
 ## SecureSubmit eCommerce Payment Gateway
 
-This extension allows eCommerce stores to use the Heartland Payment Systems Gateway. All card data is tokenized using Heartland's SecureSubmit product.
+This extension allows eCommerce stores to use the Global Payments Gateway. All card data is tokenized using Global Payments' SecureSubmit product.
 
 ## Installation
 
@@ -19,6 +19,10 @@ Download the contents and extract to your WordPress plugin folder. Activate.
 5. Create new Pull Request
 
 ## Changelog
+### 3.0.6 =
+
+* Global Payments Rebrand for Github
+
 ### 3.0.5 =
 
 * Various Security vulnerability fixes
