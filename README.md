@@ -19,6 +19,10 @@ Download the contents and extract to your WordPress plugin folder. Activate.
 5. Create new Pull Request
 
 ## Changelog
+### 3.0.7 =
+
+* Bugfix: For Escaped HTML in Gift Card
+
 ### 3.0.6 =
 
 * Global Payments Rebrand for Github

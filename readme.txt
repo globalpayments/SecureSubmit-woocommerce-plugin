@@ -37,6 +37,10 @@ Get your Certification (Dev/Sandbox) Api Keys by creating an account on https://
 3. A view of the Manage Cards section
 
 == Changelog ==
+= 3.0.7 = 
+
+* Bugfix: For Escaped HTML in Gift Card
+
 = 3.0.6 =
 
 * Global Payments Rebrand for Github

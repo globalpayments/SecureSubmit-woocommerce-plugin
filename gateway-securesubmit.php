@@ -3,7 +3,7 @@
 Plugin Name: Global Payments SecureSubmit Gateway
 Plugin URI: https://developer.heartlandpaymentsystems.com/SecureSubmit/
 Description: Global Payments gateway for eCommerce.
-Version: 3.0.6
+Version: 3.0.7
 WC tested up to: 9.8.1
 Author: SecureSubmit
 Author URI: https://developer.heartlandpaymentsystems.com/SecureSubmit/
