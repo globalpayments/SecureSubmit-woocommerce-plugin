@@ -5,7 +5,7 @@ if (!defined('ABSPATH')) {
 ?>
 
 <h3><?php esc_html_e('MasterPass', 'wc_securesubmit'); ?></h3>
-<p><?php esc_html('MasterPass description'); ?></p>
+<p><?php esc_html_e('MasterPass description', 'wc_securesubmit'); ?></p>
 <?php if (in_array(get_woocommerce_currency(), array('USD'))): ?>
     <table class="form-table">
         <?php $this->generate_settings_html(); ?>

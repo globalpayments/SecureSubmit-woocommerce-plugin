@@ -6,7 +6,7 @@ if (!defined('ABSPATH')) {
 
 <?php $masterpass = WC_Gateway_SecureSubmit_MasterPass::instance(); ?>
 <div class="securesubmit-connect-with-masterpass">
-  <h2><?php echo esc_html_e('MasterPass', 'wc_securesubmit'); ?></h2>
+  <h2><?php esc_html_e('MasterPass', 'wc_securesubmit'); ?></h2>
 
   <?php $longAccessToken = get_user_meta(get_current_user_id(), '_masterpass_long_access_token', true); ?>
   <?php if ($longAccessToken): ?>
