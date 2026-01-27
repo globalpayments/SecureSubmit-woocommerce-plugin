@@ -1,7 +1,7 @@
 {
     "name": "hps/heartland-woocommerce-plugin",
     "require-dev": {
-        "phpunit/phpunit": "^4.8"
+        "phpunit/phpunit": "^8.5"
     },
     "require": {}
 }
