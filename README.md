@@ -19,6 +19,10 @@ Download the contents and extract to your WordPress plugin folder. Activate.
 5. Create new Pull Request
 
 ## Changelog
+### 4.0.0 =
+
+* Removed MasterPass payment method to fix PHP 8.1+ deprecation warnings. Migrating to Click to Pay in future release.
+
 ### 3.0.7 =
 
 * Bugfix: For Escaped HTML in Gift Card
