@@ -3,7 +3,7 @@
 Plugin Name: Global Payments SecureSubmit Gateway
 Plugin URI: https://developer.heartlandpaymentsystems.com/SecureSubmit/
 Description: Global Payments gateway for eCommerce.
-Version: 3.0.7
+Version: 4.0.0
 WC tested up to: 9.8.1
 Author: SecureSubmit
 Author URI: https://developer.heartlandpaymentsystems.com/SecureSubmit/
@@ -18,6 +18,7 @@ class HeartlandSecureSubmitGateway
         add_action('init', array($this, 'init'), 0);
         add_action('woocommerce_load', array($this, 'activate'));
         add_action('wp_enqueue_scripts', array($this, 'loadScripts'));
+        add_action('admin_init', array($this, 'cleanupMasterPassSettings'));
     }
 
     public function init()
@@ -43,16 +44,9 @@ class HeartlandSecureSubmitGateway
         add_action('woocommerce_order_actions', array($securesubmit->capture, 'addOrderAction'));
         add_action('woocommerce_order_action_' . $securesubmit->id . '_capture', array($securesubmit, 'process_capture'));
 
-        // MasterPass
-        $masterpass = call_user_func(array(self::SECURESUBMIT_GATEWAY_CLASS . '_MasterPass', 'instance'));
-        add_action('wp_ajax_securesubmit_masterpass_lookup', array($masterpass, 'lookupCallback'));
-        add_action('wp_ajax_nopriv_securesubmit_masterpass_lookup', array($masterpass, 'lookupCallback'));
-        add_shortcode('woocommerce_masterpass_review_order', array($masterpass, 'reviewOrderShortcode'));
-
-        // add_action('woocommerce_order_actions', array($masterpass->capture, 'addOrderAction'));
-        add_action('woocommerce_order_action_' . $masterpass->id . '_capture', array($masterpass, 'process_capture'));
-        add_action('woocommerce_after_my_account', array($masterpass, 'myaccountConnect'));
-        add_action('wp_loaded', array($masterpass->reviewOrder, 'processCheckout'));
+        // MasterPass - REMOVED: MasterPass has been deprecated and removed to prevent PHP 8.1+ warnings.
+        // The program is migrating to Click to Pay in a future solution.
+        // Legacy MasterPass settings are automatically cleaned up on plugin load.
 
         $giftCards         = new WC_Gateway_SecureSubmit_GiftCards;
         $giftCardPlacement = new giftCardOrderPlacement;
@@ -93,7 +87,8 @@ class HeartlandSecureSubmitGateway
         }
 
         $this->loadClasses();
-        call_user_func(array(self::SECURESUBMIT_GATEWAY_CLASS . '_MasterPass', 'createOrderReviewPage'));
+        // MasterPass order review page creation removed - deprecated
+        // call_user_func(array(self::SECURESUBMIT_GATEWAY_CLASS . '_MasterPass', 'createOrderReviewPage'));
 
         add_filter('woocommerce_payment_gateways', array($this, 'addGateway'));
         add_action('woocommerce_after_my_account', array($this, 'savedCards'));
@@ -108,7 +103,9 @@ class HeartlandSecureSubmitGateway
      */
     public function addGateways($methods)
     {
-        $methods[] = self::SECURESUBMIT_GATEWAY_CLASS . '_MasterPass';
+        // MasterPass gateway removed - deprecated and moving to Click to Pay
+        // $methods[] = self::SECURESUBMIT_GATEWAY_CLASS . '_MasterPass';
+        
         if (class_exists('WC_Subscriptions_Order')) {
             $klass = self::SECURESUBMIT_GATEWAY_CLASS . '_Subscriptions';
             if (!function_exists('wcs_create_renewal_order')) {
@@ -162,9 +159,37 @@ class HeartlandSecureSubmitGateway
         include_once('classes/class-wc-gateway-securesubmit.php');
         include_once('classes/class-wc-gateway-securesubmit-subscriptions.php');
         include_once('classes/class-wc-gateway-securesubmit-subscriptions-deprecated.php');
-        include_once('classes/class-wc-gateway-securesubmit-masterpass.php');
+        // MasterPass class loading removed - deprecated
+        // include_once('classes/class-wc-gateway-securesubmit-masterpass.php');
         include_once('classes/class-wc-gateway-securesubmit-giftcards.php');
         include_once('classes/class-giftcard-order-placement.php');
+        include_once('classes/class-masterpass-removal-notice.php');
+    }
+
+    /**
+     * Clean up legacy MasterPass settings to prevent errors and warnings.
+     * This runs once after the MasterPass removal update.
+     */
+    public function cleanupMasterPassSettings()
+    {
+        // Check if cleanup has already been performed
+        $cleanup_done = get_option('securesubmit_masterpass_cleanup_done', false);
+        
+        if ($cleanup_done) {
+            return;
+        }
+
+        // Remove MasterPass gateway settings
+        delete_option('woocommerce_securesubmit_masterpass_settings');
+        
+        // Remove any MasterPass-related user meta
+        global $wpdb;
+        $wpdb->query(
+            "DELETE FROM {$wpdb->usermeta} WHERE meta_key LIKE '%masterpass%'"
+        );
+        
+        // Mark cleanup as done
+        update_option('securesubmit_masterpass_cleanup_done', true);
     }
 }
 new HeartlandSecureSubmitGateway();
