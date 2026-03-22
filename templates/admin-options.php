@@ -40,7 +40,7 @@
     <div class="inline error">
         <p>
             <strong><?php esc_html_e('Gateway Disabled', 'wc_securesubmit'); ?></strong>
-            <?php echo esc_html_e('Choose US Dollars as your store currency to enable SecureSubmit.', 'wc_securesubmit'); ?>
+            <?php esc_html_e('Choose US Dollars as your store currency to enable SecureSubmit.', 'wc_securesubmit'); ?>
         </p>
     </div>
 <?php endif; ?>
