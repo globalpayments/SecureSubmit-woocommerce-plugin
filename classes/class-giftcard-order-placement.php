@@ -22,10 +22,10 @@ class giftCardOrderPlacement {
 
         if ( OrderUtil::custom_orders_table_usage_is_enabled() ) {
             $order = wc_get_order($order_id);
-            $applied_gift_cards = unserialize( $order->get_meta('_securesubmit_used_card_data') );
+            $applied_gift_cards = json_decode( $order->get_meta('_securesubmit_used_card_data'), true );
             $original_balance   = $order->get_meta('_securesubmit_original_reported_total');
         } else {
-            $applied_gift_cards = unserialize( get_post_meta( $order_id, '_securesubmit_used_card_data', TRUE ) );
+            $applied_gift_cards = json_decode( get_post_meta( $order_id, '_securesubmit_used_card_data', TRUE ), true );
             $original_balance   = get_post_meta( $order_id, '_securesubmit_original_reported_total', TRUE );
         }
 
@@ -120,14 +120,14 @@ class giftCardOrderPlacement {
         if (OrderUtil::custom_orders_table_usage_is_enabled()) {
             wc_get_order($order_awaiting_payment)->update_meta_data(
                 '_securesubmit_used_card_data',
-                serialize($gift_card_sales)
+                json_encode($gift_card_sales)
             );
             wc_get_order($order_awaiting_payment)->update_meta_data(
                 '_securesubmit_original_reported_total',
                 $securesubmit_data->original_total
             );
         } else {
-            update_post_meta($order_awaiting_payment, '_securesubmit_used_card_data', serialize($gift_card_sales));
+            update_post_meta($order_awaiting_payment, '_securesubmit_used_card_data', json_encode($gift_card_sales));
             update_post_meta(
                 $order_awaiting_payment,
                 '_securesubmit_original_reported_total',
